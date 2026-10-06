@@ -17,9 +17,13 @@ class orario {
         int sec;
     
     public:
-        orario(int o, int m, int s);
+        // orario();
+        // orario(int hours);
+        // orario(int hours, int minutes);
+        // orario(int hours, int minutes, int seconds);
+        orario(int hours=0, int minutes=0, int seconds=0);
         int Ore(); //{ return sec/3600; };
         int Minuti(); // { return (sec / 60) % 60; }
         int Secondi(); // { return sec % 60; }
-        int Secondi(int num); //example of overloading
+        int Secondi(int); //example of overloading
 };

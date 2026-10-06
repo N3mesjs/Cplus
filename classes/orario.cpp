@@ -1,5 +1,5 @@
 #include <iostream>
-#include <orario.h>
+#include "orario.h"
 
 
 orario::orario(int o, int m, int s){
@@ -8,6 +8,26 @@ orario::orario(int o, int m, int s){
     } else {
         sec = o*3600 + m*60 + s;
     }
+}
+
+orario::orario(int o, int m){
+    if(o < 0 || o > 23 || m<0 || m>59){
+        sec = 0;
+    } else {
+        sec = o*3600 + m*60;
+    }
+}
+
+orario::orario(int o){
+    if(o < 0 || o > 23){
+        sec = 0;
+    } else {
+        sec = o*3600;
+    }
+}
+
+orario::orario(){
+    sec = 0;
 }
 
 int orario::Ore(){
@@ -31,6 +51,3 @@ int orario::Secondi(int num){
 //int orario::Secondi(orario* this){
 //    return (*this).sec % 60;
 //}
-
-int main(void){
-}
