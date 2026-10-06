@@ -22,7 +22,7 @@ accedere in qualiasi momento.
 Gli r-values invece sono valori temporanei che non vengono
 salvati in memoria. Sono ad esempio risultati di operazioni:
 
-``` C++
+```cpp
 int x = 2;
 int y = x+3;
 ```
@@ -34,7 +34,7 @@ r-value
 Possiamo avere una implementazione in cui
 il costruttore viene considerato `oggetto temporaneo anonino`
 
-``` C++
+```cpp
 orario t;
 t = orario(12,33,25)
 ```
@@ -54,14 +54,14 @@ Quando usiamo il `new` ci viene restituito un indirizzo
 di memoria all'oggetto nella heap, dovremmo quindi usare
 un puntatore.
 
-```C++
+```cpp
 orario* ptr = new orario();
 ```
 
 ## Costruttore implicito.
 In C++ possiamo dichiarare una variabile e chiamare
 il costruttore della funzione implicitamente, ecco un es:
-```C++
+```cpp
 //vedi orario.h se serve
 orario t;
 t = 2

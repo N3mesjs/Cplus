@@ -2,7 +2,13 @@
 #include "orario.h"
 
 
-orario::orario(int o, int m, int s){
+/**
+ * N.B. Ho aggiunto const dopo la lezione dei constanti, 
+ * in quanto le funzioni non modificano lo stato dell'oggetto, 
+ * quindi è corretto dichiararle come const.
+ */
+
+orario::orario(int o=0, int m=0, int s=0){
     if(o < 0 || o > 23 || m<0 || m>59 || s<0 || s>59){
         sec = 0;
     } else {
@@ -10,39 +16,19 @@ orario::orario(int o, int m, int s){
     }
 }
 
-orario::orario(int o, int m){
-    if(o < 0 || o > 23 || m<0 || m>59){
-        sec = 0;
-    } else {
-        sec = o*3600 + m*60;
-    }
-}
-
-orario::orario(int o){
-    if(o < 0 || o > 23){
-        sec = 0;
-    } else {
-        sec = o*3600;
-    }
-}
-
-orario::orario(){
-    sec = 0;
-}
-
-int orario::Ore(){
+int orario::Ore() const{
     return sec/3600;
 }
 
-int orario::Minuti(){
+int orario::Minuti() const{
     return (sec / 60) % 60;
 }
 
-int orario::Secondi(){
+int orario::Secondi() const{
     return this->sec % 60; //il this è inutile qua dato che è implicito
 }
 
-int orario::Secondi(int num){
+int orario::Secondi(int num) const{
     return sec + num;
 }
 

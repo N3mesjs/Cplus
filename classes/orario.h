@@ -21,9 +21,9 @@ class orario {
         // orario(int hours);
         // orario(int hours, int minutes);
         // orario(int hours, int minutes, int seconds);
-        orario(int hours=0, int minutes=0, int seconds=0);
-        int Ore(); //{ return sec/3600; };
-        int Minuti(); // { return (sec / 60) % 60; }
-        int Secondi(); // { return sec % 60; }
-        int Secondi(int); //example of overloading
+        orario(int o=0, int m=0, int s=0);
+        int Ore() const; //{ return sec/3600; };
+        int Minuti() const; // { return (sec / 60) % 60; }
+        int Secondi() const; // { return sec % 60; }
+        int Secondi(int) const; //example of overloading
 };
