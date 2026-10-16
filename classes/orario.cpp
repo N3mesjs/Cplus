@@ -8,7 +8,12 @@
  * quindi è corretto dichiararle come const.
  */
 
-orario::orario(int o=0, int m=0, int s=0){
+
+/**
+ * NB: Ho tolto i valori di default, basta mettergli nel
+ * header file
+ */
+orario::orario(int o, int m, int s){
     if(o < 0 || o > 23 || m<0 || m>59 || s<0 || s>59){
         sec = 0;
     } else {
@@ -37,3 +42,19 @@ int orario::Secondi(int num) const{
 //int orario::Secondi(orario* this){
 //    return (*this).sec % 60;
 //}
+
+orario orario::UnOraPiuTardi() const{
+    orario aux;
+    aux.sec = (sec + 3600) % 86400;
+    return aux;
+}
+
+void orario::AvanzaUnOra() {
+    sec = (sec + 3600) %86400;
+}
+
+void orario::stampa(const orario& orario){
+    std::cout << "Ora: " <<  orario.Ore() 
+    << ", Minuti: " << orario.Minuti()
+    << ", Secondi: " << orario.Secondi() << "\n";
+}

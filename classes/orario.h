@@ -21,9 +21,14 @@ class orario {
         // orario(int hours);
         // orario(int hours, int minutes);
         // orario(int hours, int minutes, int seconds);
-        orario(int o=0, int m=0, int s=0);
+        explicit orario(int o=0, int m=0, int s=0);
         int Ore() const; //{ return sec/3600; };
         int Minuti() const; // { return (sec / 60) % 60; }
         int Secondi() const; // { return sec % 60; }
         int Secondi(int) const; //example of overloading
+
+        orario UnOraPiuTardi() const;
+        void AvanzaUnOra();
+
+        static void stampa(const orario&);
 };

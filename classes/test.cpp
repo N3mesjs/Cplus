@@ -22,5 +22,10 @@ int main(void){
 
     std::cout << mezzanotte->Secondi() << "\n";
 
+    orario adesso = pomeriggio.UnOraPiuTardi();
+    std::cout << adesso.Ore() << "\n";
+
+    orario::stampa(adesso);
+
     return 0;
 }
