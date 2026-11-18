@@ -31,4 +31,7 @@ class orario {
         void AvanzaUnOra();
 
         static void stampa(const orario&);
+        static orario OraDiPranzo();
+
+        orario operator+(const orario& o) const;
 };

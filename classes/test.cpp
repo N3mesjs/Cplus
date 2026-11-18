@@ -27,5 +27,10 @@ int main(void){
 
     orario::stampa(adesso);
 
+    orario pranzo = orario::OraDiPranzo();
+    orario::stampa(pranzo);
+
+    orario somma = adesso + pranzo;
+    orario::stampa(somma);
     return 0;
 }

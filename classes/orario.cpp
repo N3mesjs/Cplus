@@ -43,7 +43,7 @@ int orario::Secondi(int num) const{
 //    return (*this).sec % 60;
 //}
 
-orario orario::UnOraPiuTardi() const{
+orario orario::UnOraPiuTardi() const {
     orario aux;
     aux.sec = (sec + 3600) % 86400;
     return aux;
@@ -57,4 +57,22 @@ void orario::stampa(const orario& orario){
     std::cout << "Ora: " <<  orario.Ore() 
     << ", Minuti: " << orario.Minuti()
     << ", Secondi: " << orario.Secondi() << "\n";
+}
+
+
+/**
+Metodo che ritorna l'ora di pranzo ed e un metodo statico
+*/
+orario orario::OraDiPranzo(){
+    return orario(13, 15);
+}
+
+/**
+Definizione operazione somma con overloading del operator +
+*/
+
+orario orario::operator+(const orario& o) const {
+    orario aux;
+    aux.sec = (sec + o.sec) % 86400;
+    return aux;
 }
