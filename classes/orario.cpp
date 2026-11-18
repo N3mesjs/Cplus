@@ -76,3 +76,21 @@ orario orario::operator+(const orario& o) const {
     aux.sec = (sec + o.sec) % 86400;
     return aux;
 }
+
+orario orario::operator-(const orario& o) const{
+    orario aux;
+    aux.sec = (sec - o.sec) % 86400;
+    if(aux.sec < 0) {
+        aux.sec = 0;
+    } 
+    return aux;
+}
+
+bool orario::operator==(const orario& o) const{
+    return sec == o.sec;
+}
+
+std::ostream& operator<<(std::ostream& out, const orario& o){
+    out << o.Ore() << ":" << o.Minuti() << ":" << o.Secondi();
+    return out;
+}

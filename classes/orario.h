@@ -1,3 +1,5 @@
+#include <iostream>
+
 /**
  * Dichiarazione di una classe orario che rappresenta
  * l'ora del giorno usando i secondi trascorsi da mezzanotte,
@@ -34,4 +36,8 @@ class orario {
         static orario OraDiPranzo();
 
         orario operator+(const orario& o) const;
+        orario operator-(const orario& o) const;
+        bool operator==(const orario& o) const;
 };
+
+std::ostream& operator<<(std::ostream& out, const orario& o);
