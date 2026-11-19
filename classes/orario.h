@@ -41,3 +41,15 @@ class orario {
 };
 
 std::ostream& operator<<(std::ostream& out, const orario& o);
+
+/**
+Possiamo definire anche l'operatore relativo alla classe orario
+pero si ha il problema che si inverte l'ordine del cout
+inolte definendolo per la classe orario otteniamo che
+possiamo accedere ai suoi membri privati
+
+
+Nota bene l'overloading dell'operatore << si usa ostream,
+classe dell'oggetto std::cout, nella quale viene passato
+dove stampare le cose e l'oggetto da stampare.
+*/

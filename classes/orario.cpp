@@ -91,6 +91,5 @@ bool orario::operator==(const orario& o) const{
 }
 
 std::ostream& operator<<(std::ostream& out, const orario& o){
-    out << o.Ore() << ":" << o.Minuti() << ":" << o.Secondi();
-    return out;
+    return out << o.Ore() << ":" << o.Minuti() << ":" << o.Secondi();
 }
