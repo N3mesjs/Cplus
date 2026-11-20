@@ -1,3 +1,6 @@
+#ifndef ORARIO_H
+#define ORARIO_H
+
 #include <iostream>
 
 /**
@@ -14,7 +17,7 @@
  * il medesimo nome della classe e si mettono i parametri se necessario
  */
 
-class orario {
+class Orario {
     private:
         int sec;
     
@@ -23,24 +26,24 @@ class orario {
         // orario(int hours);
         // orario(int hours, int minutes);
         // orario(int hours, int minutes, int seconds);
-        explicit orario(int o=0, int m=0, int s=0);
+        explicit Orario(int o=0, int m=0, int s=0);
         int Ore() const; //{ return sec/3600; };
         int Minuti() const; // { return (sec / 60) % 60; }
         int Secondi() const; // { return sec % 60; }
         int Secondi(int) const; //example of overloading
 
-        orario UnOraPiuTardi() const;
+        Orario UnOraPiuTardi() const;
         void AvanzaUnOra();
 
-        static void stampa(const orario&);
-        static orario OraDiPranzo();
+        static void stampa(const Orario&);
+        static Orario OraDiPranzo();
 
-        orario operator+(const orario& o) const;
-        orario operator-(const orario& o) const;
-        bool operator==(const orario& o) const;
+        Orario operator+(const Orario& o) const;
+        Orario operator-(const Orario& o) const;
+        bool operator==(const Orario& o) const;
 };
 
-std::ostream& operator<<(std::ostream& out, const orario& o);
+std::ostream& operator<<(std::ostream& out, const Orario& o);
 
 /**
 Possiamo definire anche l'operatore relativo alla classe orario
@@ -53,3 +56,5 @@ Nota bene l'overloading dell'operatore << si usa ostream,
 classe dell'oggetto std::cout, nella quale viene passato
 dove stampare le cose e l'oggetto da stampare.
 */
+
+#endif

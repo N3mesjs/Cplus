@@ -2,20 +2,20 @@
 #include "orario.h"
 
 int main(void){
-    orario adesso(14, 55, 25);
-    orario::stampa(adesso);
+    Orario adesso(14, 55, 25);
+    Orario::stampa(adesso);
 
-    orario pranzo = orario::OraDiPranzo();
-    orario::stampa(pranzo);
-    orario pranzo2 = orario::OraDiPranzo();
-    orario::stampa(pranzo2);
+    Orario pranzo = Orario::OraDiPranzo();
+    Orario::stampa(pranzo);
+    Orario pranzo2 = Orario::OraDiPranzo();
+    Orario::stampa(pranzo2);
 
     if(pranzo == pranzo2){
         std::cout << "Sono uguali" << "\n";
     }
 
-    orario sottr = adesso - pranzo;
-    orario::stampa(sottr);
+    Orario sottr = adesso - pranzo;
+    Orario::stampa(sottr);
 
     std::cout << sottr << "\n";
 }

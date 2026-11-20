@@ -2,19 +2,19 @@
 #include "orario.h"
 
 int main(void){
-    orario pomeriggio(14, 55, 30);
+    Orario pomeriggio(14, 55, 30);
 
     /**
-     * Orario* mezzanotte = new orario();
+     * Orario* mezzanotte = new Orario();
      * in questo modo ottengo che mezzanotte è 
-     * un puntatore a un oggetto di tipo orario,
+     * un puntatore a un oggetto di tipo Orario,
      * e che non puo modificare l'oggetto a cui punta, 
      * quindi non posso fare secondi = 10, ma posso 
      * fare secondi() che è una funzione const.
      * Oppure usare funzioni const che danno 
      * una copia dell'oggetto con le modifiche.
      */
-    const orario* mezzanotte = new orario();
+    const Orario* mezzanotte = new Orario();
 
     std::cout << pomeriggio.Minuti() << "\n";
     std::cout << pomeriggio.Ore() << "\n";
@@ -22,11 +22,18 @@ int main(void){
 
     std::cout << mezzanotte->Secondi() << "\n";
 
-    orario adesso = pomeriggio.UnOraPiuTardi();
+    Orario adesso = pomeriggio.UnOraPiuTardi();
     std::cout << adesso.Ore() << "\n";
 
-    orario::stampa(adesso);
+    //Test for the static method to print all the info about our Orario object
+    Orario::stampa(adesso);
 
-    orario pranzo = orario::OraDiPranzo();
-    orario::stampa(pranzo);
+    //Static method for the lunch time
+    Orario pranzo = Orario::OraDiPranzo();
+    Orario::stampa(pranzo);
+
+    //Test operator + overloading
+    Orario somma = adesso + pranzo;
+    Orario::stampa(somma);
+    return 0;
 }

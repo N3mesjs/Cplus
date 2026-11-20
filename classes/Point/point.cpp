@@ -31,6 +31,6 @@ std::ostream& operator<<(std::ostream& os, const Point& p){
    return os << "X:" << p.getX() << " Y:" << p.getY() << " Z:" << p.getZ();
 }
 
-Point Point::operator+(const Point& p){
+Point Point::operator+(const Point& p) const {
     return Point(getX()+p.getX(), getY()+p.getY(), getZ()+p.getZ());
 }

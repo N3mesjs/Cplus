@@ -13,7 +13,7 @@
  * NB: Ho tolto i valori di default, basta mettergli nel
  * header file
  */
-orario::orario(int o, int m, int s){
+Orario::Orario(int o, int m, int s){
     if(o < 0 || o > 23 || m<0 || m>59 || s<0 || s>59){
         sec = 0;
     } else {
@@ -21,19 +21,19 @@ orario::orario(int o, int m, int s){
     }
 }
 
-int orario::Ore() const{
+int Orario::Ore() const{
     return sec/3600;
 }
 
-int orario::Minuti() const{
+int Orario::Minuti() const{
     return (sec / 60) % 60;
 }
 
-int orario::Secondi() const{
+int Orario::Secondi() const{
     return this->sec % 60; //il this è inutile qua dato che è implicito
 }
 
-int orario::Secondi(int num) const{
+int Orario::Secondi(int num) const{
     return sec + num;
 }
 
@@ -43,17 +43,17 @@ int orario::Secondi(int num) const{
 //    return (*this).sec % 60;
 //}
 
-orario orario::UnOraPiuTardi() const {
-    orario aux;
+Orario Orario::UnOraPiuTardi() const {
+    Orario aux;
     aux.sec = (sec + 3600) % 86400;
     return aux;
 }
 
-void orario::AvanzaUnOra() {
+void Orario::AvanzaUnOra() {
     sec = (sec + 3600) %86400;
 }
 
-void orario::stampa(const orario& orario){
+void Orario::stampa(const Orario& orario){
     std::cout << "Ora: " <<  orario.Ore() 
     << ", Minuti: " << orario.Minuti()
     << ", Secondi: " << orario.Secondi() << "\n";
@@ -63,22 +63,22 @@ void orario::stampa(const orario& orario){
 /**
 Metodo che ritorna l'ora di pranzo ed e un metodo statico
 */
-orario orario::OraDiPranzo(){
-    return orario(13, 15);
+Orario Orario::OraDiPranzo(){
+    return Orario(13, 15);
 }
 
 /**
 Definizione operazione somma con overloading del operator +
 */
 
-orario orario::operator+(const orario& o) const {
-    orario aux;
+Orario Orario::operator+(const Orario& o) const {
+    Orario aux;
     aux.sec = (sec + o.sec) % 86400;
     return aux;
 }
 
-orario orario::operator-(const orario& o) const{
-    orario aux;
+Orario Orario::operator-(const Orario& o) const{
+    Orario aux;
     aux.sec = (sec - o.sec) % 86400;
     if(aux.sec < 0) {
         aux.sec = 0;
@@ -86,10 +86,10 @@ orario orario::operator-(const orario& o) const{
     return aux;
 }
 
-bool orario::operator==(const orario& o) const{
+bool Orario::operator==(const Orario& o) const{
     return sec == o.sec;
 }
 
-std::ostream& operator<<(std::ostream& out, const orario& o){
+std::ostream& operator<<(std::ostream& out, const Orario& o){
     return out << o.Ore() << ":" << o.Minuti() << ":" << o.Secondi();
 }
