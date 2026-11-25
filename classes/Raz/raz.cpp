@@ -1,28 +1,47 @@
 #include "raz.h"
 #include <iostream>
 
-Raz::Raz(int num, den) : _num(num), _den(den != 0 ? den : 1) {}
+Raz::Raz(int num, int den) : _num(num), _den(den != 0 ? den : 1) {}
 
-Raz::inverso() {
+Raz Raz::inverso() const {
     return Raz(_den, _num);
 }
 
 Raz::operator double() const {
-    return(1.0*_num, 1.0*_den);
+    return(1.0*_num) / (1.0*_den);
 }
 
 Raz Raz::operator+(const Raz& r) const {
-    num = (_num * r._den) + (r._num * _den);
-    den = _den * r._den;
+    int num = (_num * r._den) + (r._num * _den);
+    int den = _den * r._den;
     return Raz(num, den);
 }
 
 Raz Raz::operator*(const Raz& r) const {
-    num = _num * r._num;
-    den = _den * r._den;
+    int num = _num * r._num;
+    int den = _den * r._den;
     return Raz(num, den);
 }
 
-Raz& operator++() {
-    return *this++
+Raz& Raz::operator++() {
+    return *this = *this + Raz(1);
+}
+
+Raz Raz::operator++(int){
+    Raz aux(*this);
+    *this = *this + Raz(1);
+    return aux;
+}
+
+bool Raz::operator==(const Raz& r) const {
+    return static_cast<double>(r) == static_cast<double>(*this);
+}
+
+std::ostream& operator<<(std::ostream& os, const Raz& r){
+    return os << r.operator double();
+    //static_cast<double>(r); stessa roba ma piu esplicito
+}
+
+Raz Raz::unTerzo() {
+    return Raz(1,3);
 }

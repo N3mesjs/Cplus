@@ -7,7 +7,7 @@ class Raz {
     private:
         int _num, _den; //den != 0
     public:
-        Raz(int num = 0, den = 1);
+        Raz(int _num = 0, int _den = 1);
 
         Raz inverso() const;
         /**
@@ -20,11 +20,11 @@ class Raz {
         operator double() const;
         Raz operator+(const Raz&) const;
         Raz operator*(const Raz&) const;
-        Raz& operator++() const;
-        Raz operator++(int) const; //dummy int
+        Raz& operator++();
+        Raz operator++(int); //dummy int
         bool operator==(const Raz&) const;
         static Raz unTerzo();
-}
+};
 
 std::ostream& operator<<(std::ostream&, const Raz&);
 
