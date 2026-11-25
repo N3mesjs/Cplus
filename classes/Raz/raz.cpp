@@ -34,7 +34,7 @@ Raz Raz::operator++(int){
 }
 
 bool Raz::operator==(const Raz& r) const {
-    return static_cast<double>(r) == static_cast<double>(*this);
+    return _num*r._den == r._num*_den;
 }
 
 std::ostream& operator<<(std::ostream& os, const Raz& r){
