@@ -41,12 +41,33 @@ void Bolletta::togliTelefonata(const Telefonata& t) {
 }
 
 Telefonata Bolletta::estraiUna() {
-    if(first != 0){
-        Nodo *p = first;
-        first = first->next;
-        Telefonata aux = p->info;
-        delete p;
+    Nodo *p = first;
+    first = first->next;
+    Telefonata aux = p->info;
+    delete p;
 
-        return aux;
+    return aux;
+}
+
+Bolletta::Nodo* Bolletta::copia(Nodo* node){
+    if(!node) return nullptr;
+    else
+        return new Nodo(node->info, copia(node->next));
+}
+
+void Bolletta::distruggi(Nodo* node){
+    if(node){
+        distruggi(node->next);
+        delete node;
     }
 }
+
+Bolletta& Bolletta::operator=(const Bolletta& b){
+    if(this != &b){
+        distruggi(first);
+        first = copia(b.first);
+    }
+    return *this;
+}
+
+Bolletta::Bolletta(const Bolletta &b) : first(copia(b.first)) {}

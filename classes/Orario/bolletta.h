@@ -6,10 +6,13 @@
 class Bolletta {
     public:
         Bolletta();
+        Bolletta(const Bolletta&);
         bool vuota() const;
         void aggiungiTelefonata(const Telefonata&);
         void togliTelefonata(const Telefonata&);
         Telefonata estraiUna();
+
+        Bolletta& operator=(const Bolletta& y);
 
     private:
         class Nodo {
@@ -20,6 +23,9 @@ class Bolletta {
                 Nodo* next;
         };
         Nodo* first;
+
+        static Nodo* copia(Nodo*);
+        static void distruggi(Nodo*);
 };
 
 #endif
